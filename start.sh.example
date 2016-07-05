@@ -1,6 +1,0 @@
-export LC_APP_ID=vAMFua5yim32gEb0BgyaUPtw-gzGzoHsz
-export LC_APP_KEY=nsyfA4qrY3UQsOe7JP6xvUxo
-export LC_APP_MASTER_KEY=oO6NPJns5NlYss9vOQ2rLci6
-export LC_APP_PORT=3000
-
-python wsgi.py
