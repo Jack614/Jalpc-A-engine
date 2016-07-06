@@ -45,3 +45,14 @@ def github():
         return '{0}({1})'.format(callback, json.dumps(user_info))
     else:
         return '{0}({1})'.format(callback, json.dumps({'ERROR': 'Login error, please login again.', 'status': '500'}))
+
+
+@api_view.route('/surl')
+def surl():
+    url = request.args.get('url')
+    callback = request.args.get('callback')
+    payload = {
+        'url': url
+    }
+    r = requests.get("http://yep.it/api.php", params=payload)
+    return '{0}({1})'.format(callback, json.dumps({'surl': r.text, 'status': '200'}))
