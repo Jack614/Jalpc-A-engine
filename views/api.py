@@ -54,5 +54,5 @@ def surl():
     payload = {
         'url': url
     }
-    r = requests.get("http://yep.it/api.php", params=payload)
-    return '{0}({1})'.format(callback, json.dumps({'surl': r.text, 'status': '200'}))
+    r = requests.post("http://vurl.cn/create.php", data=payload)
+    return '{0}({1})'.format(callback, json.dumps({'surl': dict(r.text)['tinyurl'], 'status': '200'}))
