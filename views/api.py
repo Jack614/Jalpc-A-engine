@@ -55,4 +55,4 @@ def surl():
         'url': url
     }
     r = requests.post("http://vurl.cn/create.php", data=payload)
-    return '{0}({1})'.format(callback, json.dumps({'surl': dict(r.text)['tinyurl'], 'status': '200'}))
+    return '{0}({1})'.format(callback, json.dumps({'surl': json.loads(r.text)['tinyurl'], 'status': '200'}))
