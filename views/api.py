@@ -56,3 +56,19 @@ def surl():
     }
     r = requests.get("http://yep.it/api.php", params=payload)
     return '{0}({1})'.format(callback, json.dumps({'surl': r.text, 'status': '200'}))
+
+
+@api_view.route('/jalpc_count')
+def jalpc_count():
+    try:
+        f = open('/tmp/count.txt', "r")
+        s = int(f.read())
+        f.close()
+    except:
+        s = 23589
+    s += 1
+    callback = request.args.get('callback')
+    f = open('/tmp/count.txt', "w")
+    f.write(str(s))
+    f.close()
+    return '{0}({1})'.format(callback, json.dumps({'count': s, 'status': 200}))
