@@ -60,15 +60,18 @@ def surl():
 
 @api_view.route('/jalpc_count')
 def jalpc_count():
+    home_path = os.environ['HOME']
     try:
-        f = open('/tmp/count.txt', "r")
+        f = open(os.path.join(home_path, "count.txt"), "r")
+        # f = open('/tmp/count.txt', "r")
         s = int(f.read())
         f.close()
     except:
-        s = 23589
+        s = 24123
     s += 1
     callback = request.args.get('callback')
-    f = open('/tmp/count.txt', "w")
+    f = open(os.path.join(home_path, "count.txt"), "w")
+    # f = open('/tmp/count.txt', "w")
     f.write(str(s))
     f.close()
     return '{0}({1})'.format(callback, json.dumps({'count': s, 'status': 200}))
