@@ -67,7 +67,7 @@ def jalpc_count():
         s = int(f.read())
         f.close()
     except:
-        s = 66123
+        s = 110123
     s += 1
     callback = request.args.get('callback')
     f = open(os.path.join(home_path, "count.txt"), "w")
